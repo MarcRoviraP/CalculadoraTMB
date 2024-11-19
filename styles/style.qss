@@ -1,0 +1,52 @@
+/* Estilo para los botones */
+QPushButton {
+    background-color: lightgray;
+    color: black;
+    border: 1px solid rgb(79, 233, 48);
+    font: bold 12px;
+    min-height: 30px; /* Altura mínima */
+    min-width: 100px; /* Ancho mínimo */
+}
+
+QPushButton:hover {
+    background-color: #cfcfcf;
+}
+
+QPushButton:pressed {
+    background-color: #bfbfbf;
+}
+
+/* Estilo para los campos de entrada (QLineEdit) */
+QLineEdit {
+    background-color: #69D3AF; /* Verde claro */
+    border: 1px solid #7FFFD4;
+    border-radius: 3px;
+    font: 20px;
+    color: black;
+    min-height: 30px; /* Ancho mínimo */
+    padding: 2px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+}
+
+/* Estilo para las etiquetas (QLabel) */
+QLabel {
+    font: bold 14px;
+    color: blue;
+    min-height: 20px; /* Altura mínima */
+    margin: 2px; /* Espaciado externo */
+}
+
+/* General para alinear */
+QWidget {
+    padding: 5px; /* Espaciado interno del widget principal */
+    spacing: 10px; /* Espaciado entre widgets */
+}
+
+QSpinBox{
+    max-width: 100px;
+
+}
+#tips{
+    color: rgb(0, 0, 0);
+    font: 12px;
+}

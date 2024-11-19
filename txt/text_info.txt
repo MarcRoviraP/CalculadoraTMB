@@ -1,0 +1,4 @@
+L'equació d'Harris-Benedict és una equació empírica per a estimar el metabolisme basal d'una persona en funció del seu pes corporal, alçada i edat, i és utilitzat en conjunt amb factors d'activitat física per a calcular la recomanació de consum diari de calories per a un individu. L'equació suposa una composició corporal normal, amb una relació mitjana entre la massa muscular i la massa grassa, per la qual cosa pot ser inexacta per a les persones que són molt musculoses (la fórmula subestima les necessitats reals) o per a les persones amb sobrepés (l'equació sobreestima les necessitats reals).
+Les equacions de Harris-Benedict revisades ​​per Mifflin i St Jeor en 1990 i utilitzades en l'actualitat:
+Homes TMB = (10 x pes en kg) + (6,25 × altura en cm) - (5 × edat en anys) + 5
+Dones TMB = (10 x pes en kg) + (6,25 × altura en cm) - (5 × edat en anys) - 161
