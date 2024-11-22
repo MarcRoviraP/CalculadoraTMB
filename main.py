@@ -16,7 +16,7 @@ class MainWindow(QMainWindow):
         # Configuració de la finestra principal
         self.setWindowTitle("Calculadora de TMB")
         
-        self.setFixedSize(400, 400)
+        self.setFixedSize(300, 400)
 
         # Gestió del menú
         menu = self.menuBar()
@@ -116,10 +116,6 @@ class MainWindow(QMainWindow):
         self.btnCalcular = QPushButton("Calcular")
         self.btnCalcular.clicked.connect(self.calcular)
         
-
-        
-        
-        
         hLayout.addWidget(self.btnCalcular)
 
         self.resultat = QLineEdit("")
@@ -145,7 +141,38 @@ class MainWindow(QMainWindow):
         self.radioD.installEventFilter(self)
         
         return widget
+    
+    def informacio(self) -> QWidget:
+        
+        document = open("txt/text_info.txt", "r")
+        lineas = document.readlines()
+        document.close()
+        
+        print(lineas[0])
+        masInfo = QLabel(lineas[0])
+        mainInfo = QLabel(lineas[1])
+        mainInfo.setWordWrap(True)
+        mainInfo.setObjectName("mainInfo")
+        mainInfo.setAlignment(Qt.AlignJustify)
+        
+        formules = QLabel(f"{lineas[2]}\n{lineas[3]}")
+        formules.setWordWrap(True)
+        formules.setObjectName("formules")
+        
+        layout = QVBoxLayout()
+        layout.addWidget(mainInfo)
+        layout.addWidget(formules)
+        
+        btnMasInfo = QPushButton("+Info")
+        btnMasInfo.setObjectName("btnMasInfo")
+        layout.addWidget(btnMasInfo)
+        
+        widget = QWidget()
+        widget.setLayout(layout)
+        return widget
 
+    
+    
     def eventFilter(self, source, event):
         
         tip = ""
@@ -184,8 +211,7 @@ class MainWindow(QMainWindow):
             self.tmb = 10 * pes + 6.25 * altura - 5 * edat - 161
         self.resultat.setText(str(self.tmb))
         
-    def informacio(self) -> QWidget:
-        return QWidget()
+    
         
 app = QApplication([])
 app.setStyleSheet(open("styles/style.qss").read())

@@ -15,7 +15,12 @@ QPushButton:hover {
 QPushButton:pressed {
     background-color: #bfbfbf;
 }
-
+#btnMasInfo{
+    background-color: lime;
+    color: blue;
+    border: 1px solid rgb(79, 233, 48);
+    font: bold 12px;
+}
 /* Estilo para los campos de entrada (QLineEdit) */
 QLineEdit {
     background-color: #69D3AF; /* Verde claro */
@@ -49,4 +54,15 @@ QSpinBox{
 #tips{
     color: rgb(0, 0, 0);
     font: 12px;
+}
+
+#mainInfo{
+    color: rgb(0, 0, 0);
+    font: 12px;
+    text-align: right;
+}
+#formules{
+    color: rgb(0, 0, 0);
+    font: 10px;
+    font-weight: bold;
 }
