@@ -1,6 +1,9 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
+import os
+        
+rutaBase = os.path.dirname(__file__)
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -22,8 +25,8 @@ class MainWindow(QMainWindow):
         menu = self.menuBar()
         fitxer = menu.addMenu("Fitxer")
         
-        tancaAction = QAction(QIcon("img/close.png"), "Tanca", self)
-        resetAction = QAction(QIcon("img/reset.png"), "Restableix", self)
+        tancaAction = QAction(QIcon(f"{rutaBase}/img/close.png"), "Tanca", self)
+        resetAction = QAction(QIcon(f"{rutaBase}/img/reset.png"), "Restableix", self)
         tanca = fitxer.addAction(tancaAction)
         reset = fitxer.addAction(resetAction)
         
@@ -143,12 +146,12 @@ class MainWindow(QMainWindow):
         return widget
     
     def informacio(self) -> QWidget:
+        rutaDocument = rutaBase + "/txt/text_info.txt"
         
-        document = open("txt/text_info.txt", "r")
+        document = open(rutaDocument, "r")
         lineas = document.readlines()
         document.close()
         
-        print(lineas[0])
         masInfo = QLabel(lineas[0])
         mainInfo = QLabel(lineas[1])
         mainInfo.setWordWrap(True)
@@ -224,7 +227,7 @@ class MainWindow(QMainWindow):
     
         
 app = QApplication([])
-app.setStyleSheet(open("styles/style.qss").read())
+app.setStyleSheet(open(f"{rutaBase}/styles/style.qss").read())
 window = MainWindow()
 window.show()
 app.exec_()
