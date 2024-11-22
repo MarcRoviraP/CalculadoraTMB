@@ -148,7 +148,7 @@ class MainWindow(QMainWindow):
     def informacio(self) -> QWidget:
         rutaDocument = rutaBase + "/txt/text_info.txt"
         
-        document = open(rutaDocument, "r")
+        document = open(rutaDocument, "r",encoding="utf-8")
         lineas = document.readlines()
         document.close()
         
