@@ -153,8 +153,9 @@ class MainWindow(QMainWindow):
         mainInfo = QLabel(lineas[1])
         mainInfo.setWordWrap(True)
         mainInfo.setObjectName("mainInfo")
-        mainInfo.setAlignment(Qt.AlignJustify)
         
+        mainInfo.setAlignment(Qt.AlignJustify)
+
         formules = QLabel(f"{lineas[2]}\n{lineas[3]}")
         formules.setWordWrap(True)
         formules.setObjectName("formules")
@@ -163,12 +164,18 @@ class MainWindow(QMainWindow):
         layout.addWidget(mainInfo)
         layout.addWidget(formules)
         
-        btnMasInfo = QPushButton("+Info")
-        btnMasInfo.setObjectName("btnMasInfo")
-        layout.addWidget(btnMasInfo)
+        self.btnMasInfo = QPushButton("+Info")
+        self.btnMasInfo.setObjectName("btnMasInfo")
+        
+        self.btnMasInfo.clicked.connect(lambda: QMessageBox.information(self, "Informacio Adicional", masInfo.text()))
+        layout.addWidget(self.btnMasInfo)
         
         widget = QWidget()
         widget.setLayout(layout)
+        
+        
+        
+        self.btnMasInfo.installEventFilter(self)
         return widget
 
     
@@ -190,9 +197,12 @@ class MainWindow(QMainWindow):
                 tip = "Selecciona el teu gènere (Home)"
             elif source == self.radioD:
                 tip = "Selecciona el teu gènere (Dona)"
-        
+            elif source == self.btnMasInfo:
+                tip = "Clica per a més informació"
             
             self.tips.setText(tip)
+        if event.type() == QEvent.Leave:
+            self.tips.setText("") 
         return super().eventFilter(source, event)
     
     def calcular(self):
