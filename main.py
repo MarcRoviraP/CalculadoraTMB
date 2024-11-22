@@ -1,6 +1,6 @@
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
+from PyQt5.QtWidgets import QMainWindow, QApplication, QTabWidget, QWidget, QVBoxLayout, QLabel, QPushButton, QSpinBox, QRadioButton, QGridLayout, QHBoxLayout, QStatusBar, QToolBar, QAction, QLineEdit, QMessageBox
+from PyQt5.QtCore import Qt, QEvent, QSize
+from PyQt5.QtGui import QIcon
 import os
         
 rutaBase = os.path.dirname(__file__)
